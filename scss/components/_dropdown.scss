@@ -1,3 +1,5 @@
+@use "../abstracts";
+
 .dropdown {
     position: absolute;
     left: 0;
@@ -49,7 +51,7 @@
     column-gap: 14px;
 
     & + & {
-        margin-top: 30px;
+        margin-top: 22px;
     }
 
     &__icon {
@@ -57,6 +59,10 @@
         flex-shrink: 0;
         width: 36px;
         height: 36px;
+
+        @include abstracts.breakpoint(xl) {
+            display: none;
+        }
     }
 
     &__content {
@@ -141,7 +147,7 @@
     inset: 0 0 0 calc(var(--main-column-width) - 1px);
     padding-left: 30px;
 
-    display: none;
+    display: grid;
     gap: 30px;
     grid-template-columns: repeat(3, 1fr);
 

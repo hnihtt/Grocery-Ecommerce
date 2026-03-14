@@ -1466,13 +1466,18 @@ html {
   column-gap: 14px;
 }
 .menu-column + .menu-column {
-  margin-top: 30px;
+  margin-top: 22px;
 }
 .menu-column__icon {
   position: relative;
   flex-shrink: 0;
   width: 36px;
   height: 36px;
+}
+@media (max-width: 1199.98px) {
+  .menu-column__icon {
+    display: none;
+  }
 }
 .menu-column__content {
   flex: 1;
@@ -1538,7 +1543,7 @@ html {
   position: absolute;
   inset: 0 0 0 calc(var(--main-column-width) - 1px);
   padding-left: 30px;
-  display: none;
+  display: grid;
   gap: 30px;
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
