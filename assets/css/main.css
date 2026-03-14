@@ -1215,6 +1215,9 @@ html.dark {
   --icon-color: brightness(0) saturate(100%) invert(99%) sepia(2%)
       saturate(335%) hue-rotate(252deg) brightness(117%) contrast(100%);
   --header-bg-color: #171c28;
+  --menu-icon-category-color: brightness(0) saturate(100%) invert(89%)
+      sepia(1%) saturate(2372%) hue-rotate(242deg) brightness(113%)
+      contrast(96%);
 }
 @media (max-width: 991.98px) {
   html.dark {
@@ -1428,6 +1431,8 @@ html {
   left: 0;
   padding-top: 54px;
   width: min(1240px, 100%);
+  visibility: hidden;
+  opacity: 0;
   transition: 0.3s;
 }
 .dropdown__inner {
@@ -1454,6 +1459,7 @@ html {
   width: 292px;
   height: 100%;
   border-right: 1px solid var(--top-menu-border-color);
+  overflow-y: auto;
 }
 
 .menu-column {
@@ -1481,6 +1487,7 @@ html {
   object-fit: cover;
   right: 0;
   bottom: 0;
+  filter: var(--menu-icon-category-color);
 }
 .menu-column__heading {
   min-height: 36px;

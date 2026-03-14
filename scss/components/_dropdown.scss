@@ -4,8 +4,8 @@
     padding-top: 54px;
     width: min(1240px, 100%);
 
-    // visibility: hidden;
-    // opacity: 0;
+    visibility: hidden;
+    opacity: 0;
     transition: 0.3s;
 
     &__inner {
@@ -37,6 +37,7 @@
         width: 292px;
         height: 100%;
         border-right: 1px solid var(--top-menu-border-color);
+        overflow-y: auto;
     }
 }
 
@@ -67,6 +68,7 @@
         object-fit: cover;
         right: 0;
         bottom: 0;
+        filter: var(--menu-icon-category-color);
     }
 
     &__heading {
