@@ -73,6 +73,7 @@
         padding: 0 15px;
         height: 50px;
         font-size: 1.5rem;
+        font-weight: 500;
         line-height: 146.667%;
         @extend %flexItemsCenter;
         column-gap: 6px;
@@ -126,6 +127,7 @@
 
     &__title {
         font-size: 1.5rem;
+        font-weight: 500;
         line-height: 146.667%;
     }
 

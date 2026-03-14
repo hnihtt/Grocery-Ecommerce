@@ -1222,6 +1222,7 @@ html.dark {
   --dropdown-shadow: rgba(23, 28, 40, 0.4);
   --dropdown-arrow-color: brightness(0) saturate(100%) invert(26%) sepia(1%)
       saturate(5966%) hue-rotate(194deg) brightness(102%) contrast(98%);
+  --top-menu-border-color: #171c28;
 }
 
 html {
@@ -1241,6 +1242,7 @@ html {
 html {
   --dropdown-bg-color: #fff;
   --dropdown-shadow: rgba(200, 200, 200, 0.4);
+  --top-menu-border-color: #d2d1d6;
 }
 
 .top-act__group, .top-act, .navbar__link, .navbar__list, .top-bar {
@@ -1308,6 +1310,7 @@ html {
   padding: 0 15px;
   height: 50px;
   font-size: 1.5rem;
+  font-weight: 500;
   line-height: 146.667%;
   column-gap: 6px;
 }
@@ -1351,6 +1354,7 @@ html {
 }
 .top-act__title {
   font-size: 1.5rem;
+  font-weight: 500;
   line-height: 146.667%;
 }
 .top-act__separate {
@@ -1402,13 +1406,13 @@ html {
   position: absolute;
   left: 0;
   padding-top: 54px;
-  visibility: hidden;
-  opacity: 0;
+  width: min(1240px, 100%);
   transition: 0.3s;
 }
 .dropdown__inner {
   padding: 30px;
   position: relative;
+  height: min(582px, 100vh - 158px);
   border-radius: 20px;
   background: var(--dropdown-bg-color);
   box-shadow: 0 25px 30px 15px var(--dropdown-shadow);
@@ -1420,6 +1424,78 @@ html {
   left: var(--arrow-left-pos);
   transform: translateX(-50%);
   filter: var(--dropdown-arrow-color);
+}
+
+.top-menu {
+  height: 100%;
+}
+.top-menu__main {
+  width: 292px;
+  height: 100%;
+  border-right: 1px solid var(--top-menu-border-color);
+}
+
+.menu-column {
+  display: flex;
+  column-gap: 14px;
+}
+.menu-column__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+.menu-column__content {
+  flex: 1;
+}
+.menu-column__icon-1 {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.menu-column__icon-2 {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  right: 0;
+  bottom: 0;
+}
+.menu-column__heading {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+.menu-column__list {
+  margin-top: 19px;
+}
+.menu-column__link {
+  position: relative;
+  display: block;
+  padding: 7px 0;
+  font-size: 1.4rem;
+  line-height: 142.857%;
+}
+.menu-column__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #0071dc;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.menu-column__link:hover {
+  color: #0071dc;
+}
+.menu-column__link:hover::after {
+  transform: scaleX(1);
 }
 
 /*# sourceMappingURL=main.css.map */
