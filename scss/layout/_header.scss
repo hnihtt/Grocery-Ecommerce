@@ -26,13 +26,6 @@
     @include abstracts.breakpoint(md) {
         justify-content: space-between;
     }
-
-    &__more {
-        display: none;
-        @include abstracts.breakpoint(lg) {
-            display: block;
-        }
-    }
 }
 
 .navbar {
@@ -43,7 +36,6 @@
     }
 
     @include abstracts.breakpoint(lg) {
-        // display: none;
         position: fixed;
         inset: 0 50% 0 0;
         z-index: 999;
@@ -167,10 +159,6 @@
         border-radius: 8px;
         background: var(--top-act-group-bg-color);
         box-shadow: 0 20px 60px 10px var(--top-act-group-shadow);
-
-        @include abstracts.breakpoint(md) {
-            display: none;
-        }
 
         &:first-child {
             @include abstracts.breakpoint(lg) {
