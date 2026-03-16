@@ -155,4 +155,13 @@
     grid-template-columns: repeat(3, 1fr);
 
     overflow-y: auto;
+
+    &--not-main {
+        display: grid;
+        inset: initial;
+        position: initial;
+        grid-template-columns: repeat(4, 1fr);
+        height: 100%;
+        padding-left: 0;
+    }
 }
