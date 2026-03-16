@@ -57,8 +57,7 @@
     &__item {
         &:hover {
             .dropdown {
-                opacity: 1;
-                visibility: visible;
+                display: block;
             }
             .navbar__arrow {
                 rotate: -180deg;

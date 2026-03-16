@@ -6,9 +6,7 @@
     padding-top: 54px;
     width: min(1240px, 100%);
 
-    // visibility: hidden;
-    // opacity: 0;
-    // transition: 0.3s;
+    display: none;
 
     &__inner {
         padding: 30px;
@@ -99,7 +97,7 @@
     }
 
     &__item {
-        &:hover {
+        &--active {
             .sub-menu {
                 display: grid;
             }
@@ -136,8 +134,13 @@
             transition: transform 0.3s;
         }
 
-        &:hover::after {
-            transform: scaleX(1);
+        &:hover,
+        .menu-column__item--active > & {
+            color: #0071dc;
+
+            &::after {
+                transform: scaleX(1);
+            }
         }
     }
 }
@@ -147,7 +150,7 @@
     inset: 0 0 0 calc(var(--main-column-width) - 1px);
     padding-left: 30px;
 
-    display: grid;
+    display: none;
     gap: 30px;
     grid-template-columns: repeat(3, 1fr);
 
