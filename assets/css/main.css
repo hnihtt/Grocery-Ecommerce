@@ -1301,12 +1301,11 @@ img {
 html.dark {
   --body-bg: #292e39;
   --text-color: #fff;
-  --icon-color: brightness(0) saturate(100%) invert(99%) sepia(2%)
-      saturate(335%) hue-rotate(252deg) brightness(117%) contrast(100%);
+  --icon-color: brightness(0) saturate(100%) invert(99%) sepia(2%) saturate(335%) hue-rotate(252deg) brightness(117%)
+      contrast(100%);
   --header-bg-color: #171c28;
-  --menu-icon-category-color: brightness(0) saturate(100%) invert(89%)
-      sepia(1%) saturate(2372%) hue-rotate(242deg) brightness(113%)
-      contrast(96%);
+  --menu-icon-category-color: brightness(0) saturate(100%) invert(89%) sepia(1%) saturate(2372%) hue-rotate(242deg)
+      brightness(113%) contrast(96%);
 }
 @media (max-width: 991.98px) {
   html.dark {
@@ -1319,16 +1318,18 @@ html.dark {
   --top-act-group-separate: #ededf6;
   --dropdown-bg-color: #404653;
   --dropdown-shadow: rgba(23, 28, 40, 0.4);
-  --dropdown-arrow-color: brightness(0) saturate(100%) invert(26%) sepia(1%)
-      saturate(5966%) hue-rotate(194deg) brightness(102%) contrast(98%);
+  --dropdown-arrow-color: brightness(0) saturate(100%) invert(26%) sepia(1%) saturate(5966%) hue-rotate(194deg)
+      brightness(102%) contrast(98%);
   --top-menu-border-color: #171c28;
+  --sidebar-bg: #404653;
+  --sidebar-shadow: rgba(23, 28, 40, 0.4);
 }
 
 html {
   --body-bg: #f6f6f6;
   --text-color: #1a162e;
-  --icon-color: brightness(0) saturate(100%) invert(9%) sepia(32%)
-      saturate(985%) hue-rotate(210deg) brightness(97%) contrast(99%);
+  --icon-color: brightness(0) saturate(100%) invert(9%) sepia(32%) saturate(985%) hue-rotate(210deg) brightness(97%)
+      contrast(99%);
   --header-bg-color: #eee;
   --top-act-group-bg-color: #fff;
   --top-act-group-shadow: rgba(237, 237, 246, 0.2);
@@ -1344,6 +1345,8 @@ html {
   --dropdown-bg-color: #fff;
   --dropdown-shadow: rgba(200, 200, 200, 0.4);
   --top-menu-border-color: #d2d1d6;
+  --sidebar-bg: #fff;
+  --sidebar-shadow: rgba(200, 200, 200, 0.4);
 }
 
 .top-act__group, .top-act, .navbar__link, .navbar__list, .top-bar {
@@ -1389,7 +1392,9 @@ html {
     position: fixed;
     inset: 0 50% 0 0;
     z-index: 999;
-    background: white;
+    background: var(--sidebar-bg);
+    box-shadow: 0 40px 90px 20px var(--sidebar-shadow);
+    border-radius: 0 20px 20px 0;
     padding: 20px 0;
     margin-left: 0;
     transform: translateX(-100%);
@@ -1401,6 +1406,11 @@ html {
   .navbar.show ~ .navbar__overlay {
     visibility: visible;
     opacity: 1;
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar {
+    inset: 0 20% 0 0;
   }
 }
 .navbar__overlay {
@@ -1421,6 +1431,19 @@ html {
   .navbar__list {
     flex-direction: column;
     align-items: flex-start;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    height: calc(100% - 24px);
+  }
+}
+@media (max-width: 767.98px) {
+  .navbar__list {
+    height: calc(100% - 124px);
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar__list {
+    height: calc(100% - 102px);
   }
 }
 .navbar .dropdown {
@@ -1428,9 +1451,6 @@ html {
 }
 .navbar__item:hover .dropdown {
   display: block;
-}
-.navbar__item:hover .navbar__arrow {
-  rotate: -180deg;
 }
 @media (max-width: 991.98px) {
   .navbar__item {
@@ -1442,7 +1462,10 @@ html {
   .navbar__item:hover .dropdown {
     display: none;
   }
-  .navbar__item:hover .navbar__arrow {
+  .navbar__item--active .dropdown {
+    display: block !important;
+  }
+  .navbar__item--active .navbar__arrow {
     rotate: initial;
   }
 }
@@ -1462,13 +1485,24 @@ html {
     justify-content: space-between;
   }
 }
+@media (max-width: 575.98px) {
+  .navbar__link {
+    height: 44px;
+    padding: 0 20px;
+  }
+}
 .navbar__close-btn {
   display: none;
 }
 @media (max-width: 991.98px) {
   .navbar__close-btn {
     display: block;
-    padding: 6px 40px;
+    padding: 10px 40px;
+  }
+}
+@media (max-width: 575.98px) {
+  .navbar__close-btn {
+    padding: 0 20px 10px;
   }
 }
 .navbar__arrow {
@@ -1533,6 +1567,27 @@ html {
   object-fit: cover;
 }
 
+.nav-btn {
+  height: 50px;
+  align-items: center;
+  padding: 0 40px;
+  gap: 16px;
+}
+@media (max-width: 575.98px) {
+  .nav-btn {
+    height: 44px;
+    padding: 0 20px;
+  }
+}
+.nav-btn__title, .nav-btn__qnt {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 146.667%;
+}
+.nav-btn__qnt {
+  margin-left: auto;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -1573,6 +1628,12 @@ html {
   width: min(1240px, 100%);
   display: none;
 }
+@media (max-width: 991.98px) {
+  .dropdown {
+    position: initial;
+    padding-top: 0;
+  }
+}
 .dropdown__inner {
   padding: 30px;
   position: relative;
@@ -1589,6 +1650,23 @@ html {
   transform: translateX(-50%);
   filter: var(--dropdown-arrow-color);
 }
+@media (max-width: 991.98px) {
+  .dropdown__inner {
+    padding: 0 40px;
+    height: 100%;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .dropdown__inner::before {
+    content: none;
+  }
+}
+@media (max-width: 991.98px) and (max-width: 575.98px) {
+  .dropdown__inner {
+    padding: 0 20px;
+  }
+}
 
 .top-menu {
   --main-column-width: 292px;
@@ -1601,10 +1679,22 @@ html {
   border-right: 1px solid var(--top-menu-border-color);
   overflow-y: auto;
 }
+@media (max-width: 991.98px) {
+  .top-menu__main {
+    width: 100%;
+    height: auto;
+    border-right: none;
+  }
+}
 
 .menu-column {
   display: flex;
   column-gap: 14px;
+}
+@media (max-width: 991.98px) {
+  .menu-column {
+    margin-top: 10px;
+  }
 }
 .menu-column + .menu-column {
   margin-top: 22px;
@@ -1618,6 +1708,11 @@ html {
 @media (max-width: 1199.98px) {
   .menu-column__icon {
     display: none;
+  }
+}
+@media (max-width: 991.98px) {
+  .menu-column__icon {
+    display: block;
   }
 }
 .menu-column__content {
@@ -1645,8 +1740,18 @@ html {
   font-weight: 500;
   line-height: 150%;
 }
+@media (max-width: 991.98px) {
+  .menu-column__heading {
+    margin-bottom: 26px;
+  }
+}
 .menu-column__list {
   margin-top: 19px;
+}
+@media (max-width: 991.98px) {
+  .menu-column__list {
+    margin-top: 0;
+  }
 }
 .menu-column__item--active .sub-menu {
   display: grid;
@@ -1692,6 +1797,13 @@ html {
   grid-template-columns: repeat(3, 1fr);
   overflow-y: auto;
 }
+@media (max-width: 991.98px) {
+  .sub-menu {
+    position: initial;
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+}
 .sub-menu--not-main {
   display: grid;
   inset: initial;
@@ -1699,6 +1811,12 @@ html {
   grid-template-columns: repeat(4, 1fr);
   height: 100%;
   padding-left: 0;
+}
+@media (max-width: 991.98px) {
+  .sub-menu--not-main {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

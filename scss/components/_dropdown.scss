@@ -8,6 +8,11 @@
 
     display: none;
 
+    @include abstracts.breakpoint(lg) {
+        position: initial;
+        padding-top: 0;
+    }
+
     &__inner {
         padding: 30px;
         position: relative;
@@ -27,6 +32,21 @@
 
             filter: var(--dropdown-arrow-color);
         }
+
+        @include abstracts.breakpoint(lg) {
+            padding: 0 40px;
+
+            height: 100%;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            &::before {
+                content: none;
+            }
+            @include abstracts.breakpoint(sm) {
+                padding: 0 20px;
+            }
+        }
     }
 }
 
@@ -41,12 +61,22 @@
         height: 100%;
         border-right: 1px solid var(--top-menu-border-color);
         overflow-y: auto;
+
+        @include abstracts.breakpoint(lg) {
+            width: 100%;
+            height: auto;
+            border-right: none;
+        }
     }
 }
 
 .menu-column {
     display: flex;
     column-gap: 14px;
+
+    @include abstracts.breakpoint(lg) {
+        margin-top: 10px;
+    }
 
     & + & {
         margin-top: 22px;
@@ -60,6 +90,9 @@
 
         @include abstracts.breakpoint(xl) {
             display: none;
+        }
+        @include abstracts.breakpoint(lg) {
+            display: block;
         }
     }
 
@@ -90,10 +123,17 @@
         font-size: 1.6rem;
         font-weight: 500;
         line-height: 150%;
+
+        @include abstracts.breakpoint(lg) {
+            margin-bottom: 26px;
+        }
     }
 
     &__list {
         margin-top: 19px;
+        @include abstracts.breakpoint(lg) {
+            margin-top: 0;
+        }
     }
 
     &__item {
@@ -156,6 +196,11 @@
 
     overflow-y: auto;
 
+    @include abstracts.breakpoint(lg) {
+        position: initial;
+        grid-template-columns: 1fr;
+        padding-left: 0;
+    }
     &--not-main {
         display: grid;
         inset: initial;
@@ -163,5 +208,10 @@
         grid-template-columns: repeat(4, 1fr);
         height: 100%;
         padding-left: 0;
+
+        @include abstracts.breakpoint(lg) {
+            grid-template-columns: 1fr;
+            height: auto;
+        }
     }
 }

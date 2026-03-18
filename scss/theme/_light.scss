@@ -3,8 +3,8 @@
 html {
     --body-bg: #f6f6f6;
     --text-color: #1a162e;
-    --icon-color: brightness(0) saturate(100%) invert(9%) sepia(32%)
-        saturate(985%) hue-rotate(210deg) brightness(97%) contrast(99%);
+    --icon-color: brightness(0) saturate(100%) invert(9%) sepia(32%) saturate(985%) hue-rotate(210deg) brightness(97%)
+        contrast(99%);
     --header-bg-color: #eee;
     --top-act-group-bg-color: #fff;
     --top-act-group-shadow: rgba(237, 237, 246, 0.2);
@@ -19,4 +19,8 @@ html {
     --dropdown-bg-color: #fff;
     --dropdown-shadow: rgba(200, 200, 200, 0.4);
     --top-menu-border-color: #d2d1d6;
+
+    // Sidebar
+    --sidebar-bg: #fff;
+    --sidebar-shadow: rgba(200, 200, 200, 0.4);
 }

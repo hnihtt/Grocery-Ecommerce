@@ -40,7 +40,9 @@
         inset: 0 50% 0 0;
         z-index: 999;
 
-        background: white;
+        background: var(--sidebar-bg);
+        box-shadow: 0 40px 90px 20px var(--sidebar-shadow);
+        border-radius: 0 20px 20px 0;
         padding: 20px 0;
         margin-left: 0;
 
@@ -55,6 +57,10 @@
             visibility: visible;
             opacity: 1;
         }
+    }
+
+    @include abstracts.breakpoint(sm) {
+        inset: 0 20% 0 0;
     }
 
     &__overlay {
@@ -78,6 +84,18 @@
         @include abstracts.breakpoint(lg) {
             flex-direction: column;
             align-items: flex-start;
+
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            height: calc(100% - 24px);
+        }
+
+        @include abstracts.breakpoint(md) {
+            height: calc(100% - 124px);
+        }
+
+        @include abstracts.breakpoint(sm) {
+            height: calc(100% - 102px);
         }
     }
 
@@ -90,9 +108,6 @@
             .dropdown {
                 display: block;
             }
-            .navbar__arrow {
-                rotate: -180deg;
-            }
         }
         @include abstracts.breakpoint(lg) {
             width: 100%;
@@ -102,6 +117,11 @@
             &:hover {
                 .dropdown {
                     display: none;
+                }
+            }
+            &--active {
+                .dropdown {
+                    display: block !important;
                 }
                 .navbar__arrow {
                     rotate: initial;
@@ -126,13 +146,22 @@
 
             justify-content: space-between;
         }
+
+        @include abstracts.breakpoint(sm) {
+            height: 44px;
+            padding: 0 20px;
+        }
     }
 
     &__close-btn {
         display: none;
         @include abstracts.breakpoint(lg) {
             display: block;
-            padding: 6px 40px;
+            padding: 10px 40px;
+        }
+
+        @include abstracts.breakpoint(sm) {
+            padding: 0 20px 10px;
         }
     }
 
@@ -205,5 +234,27 @@
         height: 100%;
         width: 100%;
         object-fit: cover;
+    }
+}
+
+.nav-btn {
+    height: 50px;
+    align-items: center;
+    padding: 0 40px;
+    gap: 16px;
+
+    @include abstracts.breakpoint(sm) {
+        height: 44px;
+        padding: 0 20px;
+    }
+
+    &__title,
+    &__qnt {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 146.667%;
+    }
+    &__qnt {
+        margin-left: auto;
     }
 }
