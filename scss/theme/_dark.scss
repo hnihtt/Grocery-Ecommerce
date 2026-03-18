@@ -9,7 +9,7 @@ html.dark {
     --menu-icon-category-color: brightness(0) saturate(100%) invert(89%) sepia(1%) saturate(2372%) hue-rotate(242deg)
         brightness(113%) contrast(96%);
 
-    @include abstracts.breakpoint(lg) {
+    @include abstracts.screen(lg) {
         --header-shadow: rgba(0, 0, 0, 0.2);
     }
 
