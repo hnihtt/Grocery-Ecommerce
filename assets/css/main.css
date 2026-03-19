@@ -160,6 +160,7 @@ button {
   outline: none;
   background: transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 a,
@@ -1330,6 +1331,8 @@ html.dark {
   --cate-item-bg: #171c28;
   --cate-item-thumb-bg: #292e39;
   --cate-item-title: #fff;
+  --filter-btn-color: #fff;
+  --filter-btn-bg: #171c28;
 }
 
 html {
@@ -1364,6 +1367,11 @@ html {
 html {
   --cate-item-thumb-bg: #fff;
   --cate-item-title: #000;
+  --filter-btn-color: #6c6c72;
+  --filter-btn-bg: #fff;
+  --like-btn-shadow: rgba(124, 124, 124, 0.2);
+  --product-card-bg: #fff;
+  --product-card-shadow: rgba(237, 237, 246, 0.2);
 }
 
 .top-act__group, .top-act, .navbar__link, .navbar__list, .top-bar {
@@ -1920,7 +1928,7 @@ html {
   gap: 20px;
   border-radius: 16px;
   background: var(--cate-item-bg);
-  height: 100%;
+  height: auto;
 }
 @media (max-width: 1199.98px) {
   .cate-item {
@@ -1992,6 +2000,76 @@ html {
   }
 }
 
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 14px;
+  height: 36px;
+  border-radius: 6px;
+  color: var(--filter-btn-color);
+  background: var(--filter-btn-bg);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 142.857%;
+}
+
+.like-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  box-shadow: 0 20px 60px var(--like-btn-shadow);
+}
+
+.product-card {
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--product-card-bg);
+  box-shadow: 0 20px 60px 10px var(--product-card-shadow);
+}
+.product-card__wrapper {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-card__thumb {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.product-card__like--btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.product-card__title {
+  margin-top: 16px;
+}
+.product-card__title, .product-card__price, .product-card__score {
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+.product-card__brand {
+  margin: 16px 0;
+  color: #9e9da8;
+  font-size: 1.5rem;
+  line-height: 146.667%;
+}
+.product-card__row {
+  display: flex;
+  align-items: center;
+}
+.product-card__star {
+  margin-left: auto;
+  margin-right: 6px;
+}
+
 .home__container {
   margin-top: 40px;
 }
@@ -2017,6 +2095,14 @@ html {
   .home__cate {
     --grid-gutter-y: 20px;
   }
+}
+.home__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home__product {
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

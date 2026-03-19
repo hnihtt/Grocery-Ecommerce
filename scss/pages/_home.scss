@@ -25,4 +25,14 @@
             --grid-gutter-y: 20px;
         }
     }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__product {
+        margin-top: 20px;
+    }
 }
